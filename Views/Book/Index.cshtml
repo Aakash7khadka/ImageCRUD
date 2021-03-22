@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ImageCRUD.Models.Book> 
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-6">
+            <h3>Product List</h3>
+        </div>
+       
+            <div class="col-6 text-right">
+                <a class="btn w-50 btn-primary " asp-action="Upsert">Create New Product</a>
+            </div>
+       
+
+
+    </div>
+    @if (Model.Count() > 0)
+    {
+        <div class="row">
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th>Book Name</th>
+                    <th>Book Price</th>
+                    <th>Category</th>
+                </tr>
+                @foreach (var obj in Model)
+                {
+
+            <tr>
+
+                <td width="20%">@obj.book_name</td>
+                <td width="20%">@obj.book_price</td>
+                <td width="20%">@obj.Category.category_name</td>
+
+                <td>
+                    <a class="btn btn-success" asp-action="Upsert" asp-route-id="@obj.book_id">Edit</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@obj.book_id">Delete</a>
+                </td>
+                @*<td ><img width="100" height="120" src="@WC.ImagePath@obj.book_image"/></td>*@
+            </tr>
+                }
+            </table>
+        </div>
+
+    }
+     else { 
+        <h2>No products found</h2>
+    }
+</div>

@@ -1,0 +1,51 @@
+﻿@model ImageCRUD.Models.Book
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<form method="post" enctype="multipart/form-data">
+   
+        <input asp-for="book_id" hidden />
+    
+
+    <div class="row">
+        <div class="col-8">
+            <div class="p-3 border">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="book_name">Book Name</label>
+                    </div>
+
+                    <div class="col-4 ">
+                        <input class="form-control" asp-for="book_name" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="book_price">Book Price</label>
+                    </div>
+                    <div class="col-4 ">
+                        <input class="form-control" asp-for="book_price" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="book_image">Image</label>
+                    </div>
+                    <div class="col-4 ">
+                        <input type="file" name="files" asp-for="book_image" id="uploadBox" />
+                    </div>
+                </div>
+                <input type="submit" value="Delete" class="btn btn-danger"  />
+            </div>
+
+
+        </div>
+        <div class="col-4">
+            <img src="@WC.ImagePath@Model.book_image" width="90%" height="100%" />
+        </div>
+    </div>
+
+</form>
+
