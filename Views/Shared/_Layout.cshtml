@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http 
+@inject IHttpContextAccessor HttpContextAccesor
+@using ImageCRUD.Utility
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -6,6 +9,7 @@
     <title>@ViewData["Title"] - ImageCRUD</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/fontawesome/css/all.css"/>
 </head>
 <body>
     <header>
@@ -29,16 +33,40 @@
                             Content Management
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="Index">Product</a>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Index">Category</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="Index">Product</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Index">Category</a>
+                            @if (User.IsInRole(WC.AdminRole))
+                            {
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Register">Admin user register</a>
+
+
+                            }
                         </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                     </li>
+                    <li>
+                        @if (HttpContextAccesor.HttpContext.Session.Get<List<ShoppingCart>>(WC.ShoppingCart) != null)
+                        {
+
+                        <a asp-action="Index" asp-controller="Cart" class="nav-link">
+                            @{
+                                var count = HttpContextAccesor.HttpContext.Session.Get<List<ShoppingCart>>(WC.ShoppingCart).Count;
+                            }
+                            <i class="fas fa-shopping-cart"></i>&nbsp; (@count)
+                        </a>
+                                }
+                                else
+                                {
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-shopping-cart"></i>&nbsp; (0)
+                    </a>
+                                }
+                    </li>
                 </ul>
+                <partial name="_LoginPartial" />
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>

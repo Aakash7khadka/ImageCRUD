@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "restored": true,
+      "restoreTime": "2021-03-28T11:39:45.4899762Z"
+    }
+  },
+  "parameters": {
+    "mssql1.subscriptionId": {
+      "Type": "subscription",
+      "Value": "6e6e98a4-23b0-47ef-8464-dadfd734aba7"
+    },
+    "mssql1.resourceGroupName": {
+      "Type": "resourceGroup",
+      "Value": "Youtubetutorial20210313144420ResourceGroup"
+    }
+  }
+}

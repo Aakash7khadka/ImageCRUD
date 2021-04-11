@@ -12,7 +12,7 @@ namespace ImageCRUD.Models
         [Key]
        public  int book_id { get; set; }
        public string book_name { get; set; }
-
+        
        public float book_price { get; set; }
        public string book_image { get; set; }
 
