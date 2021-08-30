@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Dot Net\\ImageCRUD\\ImageCRUD.csproj": {}
+    "C:\\Users\\Aakas\\Source\\Repos\\ImageCRUD\\ImageCRUD.csproj": {}
   },
   "projects": {
-    "E:\\Dot Net\\ImageCRUD\\ImageCRUD.csproj": {
+    "C:\\Users\\Aakas\\Source\\Repos\\ImageCRUD\\ImageCRUD.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Dot Net\\ImageCRUD\\ImageCRUD.csproj",
+        "projectUniqueName": "C:\\Users\\Aakas\\Source\\Repos\\ImageCRUD\\ImageCRUD.csproj",
         "projectName": "ImageCRUD",
-        "projectPath": "E:\\Dot Net\\ImageCRUD\\ImageCRUD.csproj",
+        "projectPath": "C:\\Users\\Aakas\\Source\\Repos\\ImageCRUD\\ImageCRUD.csproj",
         "packagesPath": "C:\\Users\\Aakas\\.nuget\\packages\\",
-        "outputPath": "E:\\Dot Net\\ImageCRUD\\obj\\",
+        "outputPath": "C:\\Users\\Aakas\\Source\\Repos\\ImageCRUD\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\Aakas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,6 +30,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -37,6 +42,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Mailjet.Api": {
               "target": "Package",
@@ -56,17 +62,13 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.4, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[5.0.4, )"
+              "version": "[5.0.9, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.4, )"
+              "version": "[5.0.9, )"
             },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
@@ -75,6 +77,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.5, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[5.0.7, )"
             }
           },
           "imports": [
@@ -95,7 +101,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
