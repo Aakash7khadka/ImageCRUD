@@ -9227,23 +9227,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Aakas\\.nuget\\packages\\": {},
+    "C:\\Users\\welcome\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Aakas\\Source\\Repos\\ImageCRUD\\ImageCRUD.csproj",
+      "projectUniqueName": "E:\\web\\NET Practical\\New folder\\EC\\ImageCRUD.csproj",
       "projectName": "ImageCRUD",
-      "projectPath": "C:\\Users\\Aakas\\Source\\Repos\\ImageCRUD\\ImageCRUD.csproj",
-      "packagesPath": "C:\\Users\\Aakas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Aakas\\Source\\Repos\\ImageCRUD\\obj\\",
+      "projectPath": "E:\\web\\NET Practical\\New folder\\EC\\ImageCRUD.csproj",
+      "packagesPath": "C:\\Users\\welcome\\.nuget\\packages\\",
+      "outputPath": "E:\\web\\NET Practical\\New folder\\EC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Aakas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\welcome\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -9331,7 +9331,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
