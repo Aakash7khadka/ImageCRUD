@@ -26,7 +26,7 @@ namespace ImageCRUD.Controllers
         {
             HomeVM homeVM = new HomeVM()
             {
-                books = _db.Book.Include(u => u.Category),
+                products = _db.Product.Include(u => u.Category),
                 categories = _db.Category
             };
             return View(homeVM);
@@ -34,10 +34,10 @@ namespace ImageCRUD.Controllers
        
         public IActionResult filter(string category)
         {
-            var book = _db.Book.Where(u => u.Category.category_name == category);
+            var product = _db.Product.Where(u => u.Category.category_name == category);
             HomeVM homeVM = new HomeVM()
             {
-                books = book.Include(u => u.Category),
+                products = product.Include(u => u.Category),
                 categories = _db.Category
             };
             return View("Index",homeVM);
@@ -55,13 +55,13 @@ namespace ImageCRUD.Controllers
             DetailVM DetailVM = new DetailVM()
             {
 
-                Book = _db.Book.Include(u => u.Category).Where(u => u.book_id == id).FirstOrDefault(),
+                Product = _db.Product.Include(u => u.Category).Where(u => u.product_id == id).FirstOrDefault(),
                 ExistsInCart = false
 
             };
             foreach(var obj in ShoppingCartList)
             {
-                if (obj.BookId == DetailVM.Book.book_id)
+                if (obj.ProductId == DetailVM.Product.product_id)
                 {
                     DetailVM.ExistsInCart = true;
                 }
@@ -79,7 +79,7 @@ namespace ImageCRUD.Controllers
 
                 ShoppingCartList = HttpContext.Session.Get<List<ShoppingCart>>(WC.ShoppingCart);
             }
-            ShoppingCartList.Add(new ShoppingCart { BookId = id });
+            ShoppingCartList.Add(new ShoppingCart { ProductId = id });
             HttpContext.Session.Set(WC.ShoppingCart, ShoppingCartList);
             return RedirectToAction(nameof(Index));
         }
@@ -93,7 +93,7 @@ namespace ImageCRUD.Controllers
 
                 ShoppingCartList = HttpContext.Session.Get<List<ShoppingCart>>(WC.ShoppingCart);
             }
-            var objToRemove = ShoppingCartList.SingleOrDefault(u => u.BookId == id);
+            var objToRemove = ShoppingCartList.SingleOrDefault(u => u.ProductId == id);
             if (objToRemove != null)
             {
                 ShoppingCartList.Remove(objToRemove);

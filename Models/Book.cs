@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace ImageCRUD.Models
 {
-    public class Book
+    public class Product
     {
         [Key]
-       public  int book_id { get; set; }
-       public string book_name { get; set; }
+       public  int product_id { get; set; }
+       public string product_name { get; set; }
         
-       public float book_price { get; set; }
-       public string book_image { get; set; }
+       public float product_price { get; set; }
+       public string product_image { get; set; }
 
         public int CategoryId { get; set; }
         [ForeignKey("CategoryId")]

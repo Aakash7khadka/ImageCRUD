@@ -7,6 +7,6 @@ namespace ImageCRUD.Models
 {
     public class ShoppingCart
     {
-        public int BookId { get; set; }
+        public int ProductId { get; set; }
     }
 }

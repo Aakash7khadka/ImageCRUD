@@ -7,7 +7,7 @@ namespace ImageCRUD.Models
 {
     public class DetailVM
     {
-        public Book Book { get; set; }
+        public Product Product { get; set; }
         public bool ExistsInCart { get; set; }
     }
 }

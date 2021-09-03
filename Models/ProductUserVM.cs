@@ -8,11 +8,11 @@ namespace ImageCRUD.Models
     public class ProductUserVM
     {
         public ApplicationUser ApplicationUser { get; set; }
-        public List<Book> BookList { get; set; }
+        public List<Product> BookList { get; set; }
 
         public ProductUserVM()
         {
-            BookList = new List<Book>();
+            BookList = new List<Product>();
         }
     }
 }

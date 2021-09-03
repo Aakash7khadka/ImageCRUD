@@ -7,7 +7,7 @@ namespace ImageCRUD.Models
 {
     public class HomeVM
     {
-        public IEnumerable<Book> books { get; set; }
+        public IEnumerable<Product> products { get; set; }
         public IEnumerable<Category> categories { get; set; }
     }
 }

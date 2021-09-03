@@ -1,8 +1,8 @@
-﻿@model ImageCRUD.Models.Book
+﻿@model ImageCRUD.Models.Product
 @{
     ViewData["Title"] = "Upsert";
 }
-@if (Model.book_id == 0)
+@if (Model.product_id == 0)
 {
     <h3>Create Book</h3>
 }
@@ -13,9 +13,9 @@ else
 
 
 <form method="post" enctype="multipart/form-data">
-    @if (Model.book_id != 0)
+    @if (Model.product_id != 0)
     {
-        <input asp-for="book_id" hidden/>
+        <input asp-for="product_id" hidden/>
     }
 
 <div class="row">
@@ -23,19 +23,19 @@ else
         <div class="p-3 border">
             <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="book_name">Book Name</label>
+                    <label asp-for="product_name">Product Name</label>
                 </div>
 
                 <div class="col-4 ">
-                    <input class="form-control" asp-for="book_name" />
+                    <input class="form-control" asp-for="product_name" />
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="book_price">Book Price</label>
+                    <label asp-for="product_price">Product Price</label>
                 </div>
                 <div class="col-4 ">
-                    <input class="form-control" asp-for="book_price" />
+                    <input class="form-control" asp-for="product_price" />
                 </div>
             </div>
             <div class="form-group row">
@@ -51,10 +51,10 @@ else
             </div>
             <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="book_image">Image</label>
+                    <label asp-for="product_image">Image</label>
                 </div>
                 <div class="col-4 ">
-                    <input type="file" name="files" asp-for="book_image" id="uploadBox" />
+                    <input type="file" name="files" asp-for="product_image" id="uploadBox" />
                 </div>
             </div>
             <input type="submit" value="Save" />
@@ -63,9 +63,9 @@ else
         
     </div>
     <div class="col-4">
-        @if (Model.book_id != 0)
+        @if (Model.product_id != 0)
         {
-            <img src="@WC.ImagePath@Model.book_image" width="90%" height="100%" />
+            <img src="@WC.ImagePath@Model.product_image" width="90%" height="100%" />
         }
 
     </div>

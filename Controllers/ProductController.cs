@@ -11,12 +11,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ImageCRUD.Controllers
 {
-    public class BookController : Controller
+    public class ProductController : Controller
     {
         
         private readonly ApplicationDbContext _db;
         private readonly IWebHostEnvironment _webHostEnvironment;
-        public BookController(ApplicationDbContext db,IWebHostEnvironment webHostEnvironment)
+        public ProductController(ApplicationDbContext db,IWebHostEnvironment webHostEnvironment)
         {
             _db = db;
             _webHostEnvironment = webHostEnvironment;
@@ -24,7 +24,7 @@ namespace ImageCRUD.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable<Book> data_list = _db.Book.Include(u=>u.Category);
+            IEnumerable<Product> data_list = _db.Product.Include(u=>u.Category);
             return View(data_list);
         }
 
@@ -37,10 +37,10 @@ namespace ImageCRUD.Controllers
             }); 
             ViewBag.category_list =category_list;
             if(id==null)
-            return View(new Book());
+            return View(new Product());
             else
             {
-                var obj = _db.Book.Find(id);
+                var obj = _db.Product.Find(id);
                 if (id != null)
                     return View(obj);
                 else
@@ -52,7 +52,7 @@ namespace ImageCRUD.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Upsert( Book Book)
+        public IActionResult Upsert( Product Product)
         {
 
             var files = HttpContext.Request.Form.Files;
@@ -60,7 +60,7 @@ namespace ImageCRUD.Controllers
             string filename = Guid.NewGuid().ToString();
             string extension = Path.GetExtension(files[0].FileName);
             string path = Path.Combine(rootpath + "\\Image\\", filename + extension);
-            if (Book.book_id==0)
+            if (Product.product_id==0)
             {
                 //create
                
@@ -68,8 +68,8 @@ namespace ImageCRUD.Controllers
                 {
                     files[0].CopyTo(FileStream);
                 }
-                Book.book_image = filename + extension;
-                _db.Add(Book);
+                Product.product_image = filename + extension;
+                _db.Add(Product);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
 
@@ -77,7 +77,7 @@ namespace ImageCRUD.Controllers
             else
             {
                 //updating
-                var objFromDb = _db.Book.AsNoTracking().FirstOrDefault(u => u.book_id == Book.book_id);
+                var objFromDb = _db.Product.AsNoTracking().FirstOrDefault(u => u.product_id == Product.product_id);
                 
                 if (objFromDb == null)
                 {
@@ -85,14 +85,14 @@ namespace ImageCRUD.Controllers
                 }
                 else
                 {
-                    var imagepath = rootpath + WC.ImagePath + objFromDb.book_image;
+                    var imagepath = rootpath + WC.ImagePath + objFromDb.product_image;
                     System.IO.File.Delete(imagepath);
                     using (var FileStream = new FileStream(path, FileMode.Create))
                     {
                         files[0].CopyTo(FileStream);
                     }
-                    Book.book_image = filename + extension;
-                    _db.Update(Book);
+                    Product.product_image = filename + extension;
+                    _db.Update(Product);
                     _db.SaveChanges();
                     return RedirectToAction("Index");
 
@@ -113,15 +113,15 @@ namespace ImageCRUD.Controllers
             }
             else
             {
-                var obj = _db.Book.Find(id);
+                var obj = _db.Product.Find(id);
                 return View(obj);
             }
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Delete(Book obj)
+        public IActionResult Delete(Product obj)
         {
-            var objFromDb = _db.Book.AsNoTracking().FirstOrDefault(u => u.book_id == obj.book_id);
+            var objFromDb = _db.Product.AsNoTracking().FirstOrDefault(u => u.product_id == obj.product_id);
             if (objFromDb == null)
             {
                 return NotFound();
@@ -130,7 +130,7 @@ namespace ImageCRUD.Controllers
             {
                 string rootpath = _webHostEnvironment.WebRootPath;
                 string path = rootpath + WC.ImagePath;
-                System.IO.File.Delete( path+ objFromDb.book_image);
+                System.IO.File.Delete( path+ objFromDb.product_image);
                 _db.Remove(obj);
                 _db.SaveChanges();
                 return RedirectToAction("Index");

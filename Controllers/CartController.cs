@@ -34,8 +34,8 @@ namespace ImageCRUD.Controllers
                 ShoppingCartList = HttpContext.Session.Get<List<ShoppingCart>>(WC.ShoppingCart);
 
             }
-            List<int> ProdInCart = ShoppingCartList.Select(i => i.BookId).ToList();
-            IEnumerable<Book> BookList = _db.Book.Include(u => u.Category).Where(b => ProdInCart.Contains(b.book_id));
+            List<int> ProdInCart = ShoppingCartList.Select(i => i.ProductId).ToList();
+            IEnumerable<Product> BookList = _db.Product.Include(u => u.Category).Where(b => ProdInCart.Contains(b.product_id));
             return View(BookList);
         }
 
@@ -57,12 +57,12 @@ namespace ImageCRUD.Controllers
                 ShoppingCartList = HttpContext.Session.Get<List<ShoppingCart>>(WC.ShoppingCart);
 
             }
-            List<int> ProdInCart = ShoppingCartList.Select(i => i.BookId).ToList();
-            IEnumerable<Book> BookEnum = _db.Book.Include(u => u.Category).Where(b => ProdInCart.Contains(b.book_id));
-            List < Book > BookList= BookEnum.ToList();
+            List<int> ProdInCart = ShoppingCartList.Select(i => i.ProductId).ToList();
+            IEnumerable<Product> ProductEnum = _db.Product.Include(u => u.Category).Where(b => ProdInCart.Contains(b.product_id));
+            List < Product > ProductList= ProductEnum.ToList();
             ProductUserVM productUserVM = new ProductUserVM()
             {
-                BookList = BookList,
+                BookList = ProductList,
                 ApplicationUser = _db.ApplicationUser.FirstOrDefault(u => u.Email == email)
 
             };
@@ -79,7 +79,7 @@ namespace ImageCRUD.Controllers
                 ShoppingCartList = HttpContext.Session.Get<List<ShoppingCart>>(WC.ShoppingCart);
 
             }
-            var productToRemove = ShoppingCartList.FirstOrDefault(u => u.BookId == id);
+            var productToRemove = ShoppingCartList.FirstOrDefault(u => u.ProductId == id);
             ShoppingCartList.Remove(productToRemove);
             HttpContext.Session.Set<IEnumerable<ShoppingCart>>(WC.ShoppingCart, ShoppingCartList);
             return RedirectToAction(nameof(Index));

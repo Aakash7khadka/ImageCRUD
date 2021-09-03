@@ -3,28 +3,28 @@
 
 <div class="">
     <form method="post">
-        <input asp-for="@Model.Book.book_id" hidden />
+        <input asp-for="@Model.Product.product_id" hidden />
         <div class="container backgroundWhite pt-4">
             <div class="card" style="border:1px solid #000000; ">
                 <div class="card-header bg-dark text-light ml-0 row container" style="border-radius: 0px;">
                     <div class="col-12 col-md-6">
-                        <h1 class="text-white">@Model.Book.book_name</h1>
+                        <h1 class="text-white">@Model.Product.product_name</h1>
                     </div>
                     <div class="col-12 col-md-6 text-md-right">
-                        <h1 class="text-warning"> @((Model.Book.book_price).ToString("c"))</h1>
+                        <h1 class="text-warning"> @((Model.Product.product_price).ToString("c"))</h1>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="container rounded p-2">
                         <div class="row">
                             <div class="col-12 col-lg-4 p-1 text-center">
-                                <img src="@WC.ImagePath@Model.Book.book_image" width="100%" class="rounded" />
+                                <img src="@WC.ImagePath@Model.Product.product_image" width="100%" class="rounded" />
                             </div>
                             <div class="col-12 col-lg-8">
                                 <div class="row pl-3">
 
                                     <div class="col-12">
-                                        <i><span class="badge p-3 border" style="background-color:lavenderblush">Category:@Model.Book.Category.category_name</span></i>
+                                        <i><span class="badge p-3 border" style="background-color:lavenderblush">Category:@Model.Product.Category.category_name</span></i>
                                         @*<span class="badge p-3 border" style="background-color:azure">@Model.Product.ApplicationType.Name</span>
                                         <h3 class="text-success"></h3>
 
@@ -44,13 +44,13 @@
                         <div class="col-12 col-md-6 ">
                             @if (Model.ExistsInCart)
                             {
-                                <a asp-action="RemoveFromCart" asp-route-id="@Model.Book.book_id" class="btn btn-warning btn-square form-control btn-lg" style="height:50px;">Remove from Cart</a>
+                                <a asp-action="RemoveFromCart" asp-route-id="@Model.Product.product_id" class="btn btn-warning btn-square form-control btn-lg" style="height:50px;">Remove from Cart</a>
                             }
                             else
                             {
 
 
-                                <button type="submit" asp-route-id="@Model.Book.book_id" class="btn btn-info form-control btn-lg" style="height:50px;">Add to Cart</button>
+                                <button type="submit" asp-route-id="@Model.Product.product_id" class="btn btn-info form-control btn-lg" style="height:50px;">Add to Cart</button>
                             }
                         </div>
                     </div>
