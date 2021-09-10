@@ -9,7 +9,7 @@
             <h3>Category List</h3>
         </div>
         <div class="col-6 text-right">
-            <a class="btn btn-primary" asp-action="Create">Create Category</a>
+            <a class="btn btn-primary btn-sm" asp-action="Create">Create Category</a>
         </div>
     </div>
 
@@ -26,8 +26,8 @@
                     <td class="w-40">@obj.category_name</td>
                     <td class="w-40">@obj.DisplayOrder</td>
                     <td>
-                        <a class="btn btn-primary" asp-action="Edit" asp-route-id="@obj.id">Edit</a>
-                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@obj.id">Delete</a>
+                        <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@obj.id">Edit</a>
+                        <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@obj.id">Delete</a>
                     </td>
                 </tr>
 
